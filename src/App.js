@@ -3,7 +3,7 @@ import Nav from "./Components/Nav";
 import Home from "./Components/Home";
 import Shopping from "./context/Shopping";
 import ProductList from "./data/ProductList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TotalCard from "./Components/TotalCard";
 import Swal from "sweetalert2";
 
@@ -11,6 +11,10 @@ function App() {
     const [card, setCard] = useState(
         JSON.parse(localStorage.getItem("cart")) || []
     );
+
+    useEffect(()=>{
+        localStorage.setItem("cart", JSON.stringify(card))
+    }, [card])
     const addToCard = (item) => {
         let cardItem = card.find((eleCard) => item.id === eleCard.id);
 
