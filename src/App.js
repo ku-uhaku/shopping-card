@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
 import Home from "./Components/Home";
 import Shopping from "./context/Shopping";
@@ -90,7 +90,7 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Shopping.Provider
                 value={{
                     ProductList,
@@ -108,7 +108,7 @@ function App() {
                     <Route path="/card" element={<TotalCard />}></Route>
                 </Routes>
             </Shopping.Provider>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
